@@ -1,0 +1,21 @@
+```mermaid
+
+sequenceDiagram
+    participant Usuario
+    participant Navegador (SPA)
+    participant Servidor
+
+    Usuario->>Navegador (SPA): Escribe contenido de la nota
+    Usuario->>Navegador (SPA): Presiona botón "Save"
+    Note right of Navegador (SPA): Captura evento submit del formulario
+
+    Navegador (SPA)->>Servidor: POST /new_note_spa
+    activate Navegador (SPA)
+    Note right of Navegador (SPA): Envia JSON:\n{\n  content: "Mi nueva nota",\n  date: "2025-06-20T15:00:00Z"\n}
+
+    Servidor-->>Navegador (SPA): 201 Created
+    deactivate Navegador (SPA)
+
+    Navegador (SPA)-->>Usuario: Muestra la nueva nota en la lista\nsin recargar la página
+
+```
