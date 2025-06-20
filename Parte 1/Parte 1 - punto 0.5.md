@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant Usuario
     participant Navegador
@@ -21,3 +22,4 @@ sequenceDiagram
     Servidor-->>Navegador: 201 Created
     deactivate Navegador
     Note right of Navegador: Actualiza lista sin recargar la página
+```
